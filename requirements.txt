@@ -1,1 +1,6 @@
-git+https://github.com/Rapptz/discord.py
+discord.py
+discord.asyncio
+discord.datetime
+discord.caledar
+discord.requests
+discord.bs4
