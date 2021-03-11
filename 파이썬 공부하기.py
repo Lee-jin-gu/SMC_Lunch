@@ -14,7 +14,6 @@ client = discord.Client()
 
 @client.event
 
-
 async def on_ready():
 
     print(client.user.id)
@@ -69,25 +68,14 @@ async def on_message(message):
 
         site1 = str(site1)
 
-        site1 = site1.replace('[', '')
-
-        site1 = site1.replace(']', '')
-
-        site1 = site1.replace('<br/>', '\n')
-
-        site1 = site1.replace('<td class="textC last">', '')
-
-        site1 = site1.replace('<td class="textC">', '')
-
-        site1 = site1.replace('</td>', '')
-
-        site1 = site1.replace('amp;', '')
+        site1 = site1.replace('<br/>', '\n').replace('<td class="textC">', '').replace('</td>', '').replace('<td class="textC last">', '')
 
         print(site1)
 
-        embed = discord.Embed(title="급식", description="", color=0x00ff00)
+        embed = discord.Embed(title="이진구급식", description="급식이 없습니다!" if site1 == " " else "", color=0x00ff00)
 
-        embed.add_field(name="오늘급식", value=f"{site1}", inline=True)
+        if site1 != " ":
+            embed.add_field(name="급식", value=f"{site1}", inline=True)
 
         await message.channel.send(embed=embed)
 
@@ -125,27 +113,17 @@ async def on_message(message):
 
         site1 = str(site1)
 
-        site1 = site1.replace('[', '')
-
-        site1 = site1.replace(']', '')
-
-        site1 = site1.replace('<br/>', '\n')
-
-        site1 = site1.replace('<td class="textC last">', '')
-
-        site1 = site1.replace('<td class="textC">', '')
-
-        site1 = site1.replace('</td>', '')
-
-        site1 = site1.replace('amp;', '')
+        site1 = site1.replace('<br/>', '\n').replace('<td class="textC">', '').replace('</td>', '').replace('<td class="textC last">', '')
 
         print(site1)
 
-        embed = discord.Embed(title="급식", description="", color=0x00ff00)
+        embed = discord.Embed(title="내일이진구급식", description="급식이 없습니다!" if site1 == " " else "", color=0x00ff00)
 
-        embed.add_field(name="내일급식", value=f"{site1}", inline=True)
+        if site1 != " ":
+            embed.add_field(name="내일급식", value=f"{site1}", inline=True)
 
         await message.channel.send(embed=embed)
+
     if message.content==("/모래급식"):
         
         a = message.content[4:]
@@ -180,28 +158,15 @@ async def on_message(message):
 
         site1 = str(site1)
 
-        site1 = site1.replace('[', '')
-
-        site1 = site1.replace(']', '')
-
-        site1 = site1.replace('<br/>', '\n')
-
-        site1 = site1.replace('<td class="textC last">', '')
-
-        site1 = site1.replace('<td class="textC">', '')
-
-        site1 = site1.replace('</td>', '')
-
-        site1 = site1.replace('amp;', '')
+        site1 = site1.replace('<br/>', '\n').replace('<td class="textC">', ' ').replace('</td>', '').replace('<td class="textC last">', '')
 
         print(site1)
 
-        embed = discord.Embed(title="급식", description="", color=0x00ff00)
+        embed = discord.Embed(title="모래이진구급식", description="급식이 없습니다!" if site1 == " " else "", color=0x00ff00)
 
-        embed.add_field(name="모래급식", value=f"{site1}", inline=True)
+        if site1 != " ":
+            embed.add_field(name="모래급식", value=f"{site1}", inline=True)
 
         await message.channel.send(embed=embed)
 
-        
-    
 client.run('token')
