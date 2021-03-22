@@ -1,6 +1,0 @@
-discord.py
-asyncio.py
-datetime.py
-caledar.py
-requests.py
-bs4.py
